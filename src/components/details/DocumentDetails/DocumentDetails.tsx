@@ -17,10 +17,17 @@ const DocumentDetails = () => {
           label="Серія (за наявності), номер"
           required
         />
-        <FormField name="issuedDate" label="Коли видано" required />
-        <FormField name="validDate" label="Діє до" />
+        <FormField name="issuedDate" label="Коли видано" type="date" required />
+        <FormField name="validDate" label="Діє до" type="date" />
         <FormField name="issuedBy" label="Ким видано" required />
-        <FormField name="birthDate" label="Запис № (УНЗР)" required />
+        <FormField
+          name="unrzNumber"
+          label="Запис № (УНЗР)"
+          placeholder="РРРРММДД-ХХХХХ"
+          additionalMessage="Вкажіть унікальний номер запису в Демографічному реєстрі(Запис №)"
+          optionalAdditionalMessage={false}
+          required
+        />
       </div>
     </div>
   );
