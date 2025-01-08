@@ -54,16 +54,19 @@ const PatientDetails: React.FC = () => {
         />
         <InputField
           name="secretWord"
+          type="password"
           label="Секретне слово(не менше 6 символів)"
           required
         />
         <InputField
           name="phone"
+          type="tel"
           label="Кортактний номер телефону"
           placeholder="+38 (___) ___-__-__"
         />
         <InputField
           name="email"
+          type="email"
           label="Адреса електронної пошти"
           placeholder="example@example.com"
         />

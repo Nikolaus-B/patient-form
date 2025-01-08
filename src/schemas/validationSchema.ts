@@ -1,13 +1,23 @@
 import * as yup from "yup";
 
 const validationSchema = yup.object().shape({
-  firstName: yup.string().required("Поле не може бути пустим"),
-  lastName: yup.string().required("Поле не може бути пустим"),
+  firstName: yup
+    .string()
+    .min(2, "Кількість символів має бути не менше 2")
+    .required("Поле не може бути пустим"),
+  lastName: yup
+    .string()
+    .min(2, "Кількість символів має бути не менше 2")
+    .required("Поле не може бути пустим"),
   isMiddleName: yup.bool(),
   middleName: yup.string().when("isMiddleName", {
     is: true,
-    then: (schema) => schema.required("Поле не може бути пустим"),
-    otherwise: (schema) => schema.notRequired(),
+    then: (schema) =>
+      schema
+        .min(2, "Кількість символів має бути не менше 2")
+        .required("Поле не може бути пустим"),
+    otherwise: (schema) =>
+      schema.min(2, "Кількість символів має бути не менше 2").notRequired(),
   }),
   isTaxId: yup.bool(),
   rnokpp: yup.string().when("isTaxId", {

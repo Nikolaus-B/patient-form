@@ -3,6 +3,7 @@ import { Field } from "react-final-form";
 import OptionalSwitch from "../OptionalSwitch/OptionalSwitch";
 import FieldContainer from "../FieldContainer/FieldContainer";
 import { HiExclamationCircle } from "react-icons/hi";
+import normalizeSpaces from "../../../utils/normalizeSpaces";
 
 type InputFieldProps = {
   name: string;
@@ -44,6 +45,9 @@ const InputField: React.FC<InputFieldProps> = React.memo(
                 type={type}
                 placeholder={placeholder}
                 disabled={isOptionalValueChecked ? false : true}
+                onChange={(e) =>
+                  input.onChange(normalizeSpaces(e.target.value, type))
+                }
                 className={`w-full outline-none border-0 border-b ${
                   meta.submitFailed && meta.touched && meta.error
                     ? "border-b-red-500"
