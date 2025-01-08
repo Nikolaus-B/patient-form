@@ -10,8 +10,8 @@ const DetailsContainer: React.FC<DetailsContainerProps> = ({
   children,
 }) => {
   return (
-    <div>
-      <h3 className=" font-semibold text-2xl">{title}</h3>
+    <div className="">
+      <h3 className=" font-semibold text-2xl mb-3">{title}</h3>
       <div>{children}</div>
     </div>
   );

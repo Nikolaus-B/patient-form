@@ -2,7 +2,7 @@ import PatientForm from "../PatientForm/PatientForm";
 
 const FormLayout = () => {
   return (
-    <section className=" mx-10 mt-5 shadow-md">
+    <section className=" mx-10 my-5 shadow-md">
       <div className=" bg-[#189ED8] px-5 py-3">
         <p className=" text-[#FDFEFF] font-semibold">Створення персони</p>
       </div>

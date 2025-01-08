@@ -18,7 +18,7 @@ const FieldContainer: React.FC<FieldContainerProps> = ({
       <label className=" text-gray-400 ">
         {label} {required && <span>*</span>}
       </label>
-      {children}
+      <div className=" relative">{children}</div>
       <p className="">{errorMessage}</p>
     </div>
   );

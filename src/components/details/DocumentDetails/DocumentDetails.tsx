@@ -1,5 +1,5 @@
 import { documentTypeValues } from "../../../data/selectValues";
-import FormField from "../../elements/FormField/InputField";
+import InputField from "../../elements/InputField/InputField";
 import SelectField from "../../elements/SelectField/SelectField";
 
 const DocumentDetails = () => {
@@ -12,15 +12,20 @@ const DocumentDetails = () => {
           required
           options={documentTypeValues}
         />
-        <FormField
+        <InputField
           name="passportSeries"
           label="Серія (за наявності), номер"
           required
         />
-        <FormField name="issuedDate" label="Коли видано" type="date" required />
-        <FormField name="validDate" label="Діє до" type="date" />
-        <FormField name="issuedBy" label="Ким видано" required />
-        <FormField
+        <InputField
+          name="issuedDate"
+          label="Коли видано"
+          type="date"
+          required
+        />
+        <InputField name="validDate" label="Діє до" type="date" />
+        <InputField name="issuedBy" label="Ким видано" required />
+        <InputField
           name="unrzNumber"
           label="Запис № (УНЗР)"
           placeholder="РРРРММДД-ХХХХХ"

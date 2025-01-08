@@ -1,5 +1,5 @@
 import React from "react";
-import FormField from "../../elements/FormField/InputField";
+import InputField from "../../elements/InputField/InputField";
 import SelectField from "../../elements/SelectField/SelectField";
 import {
   comunicationMethodValues,
@@ -10,9 +10,9 @@ const PatientDetails: React.FC = () => {
   return (
     <div className="space-y-8">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <FormField name="firstName" label="Прізвище" required />
-        <FormField name="lastName" label="Ім’я" required />
-        <FormField
+        <InputField name="lastName" label="Прізвище" required />
+        <InputField name="firstName" label="Ім’я" required />
+        <InputField
           name="middleName"
           label="По батькові"
           required
@@ -21,7 +21,7 @@ const PatientDetails: React.FC = () => {
           additionalMessage={"Немає по батькові згідно документів"}
           optionalAdditionalMessage={true}
         />
-        <FormField
+        <InputField
           name="rnokpp"
           label="РНОКПП(ІПН)"
           required
@@ -30,7 +30,7 @@ const PatientDetails: React.FC = () => {
           additionalMessage={"Немає ІПН за віком чи має відмітку у паспорті"}
           optionalAdditionalMessage={true}
         />
-        <FormField
+        <InputField
           name="birthDate"
           label="Дата народження"
           type="date"
@@ -45,24 +45,24 @@ const PatientDetails: React.FC = () => {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6  ">
-        <FormField name="birthCountry" label="Країна народження" required />
-        <FormField name="birthPlace" label="Місце народження" required />
+        <InputField name="birthCountry" label="Країна народження" required />
+        <InputField name="birthPlace" label="Місце народження" required />
         <SelectField
           name="contactMethod"
           label="Бажаний спосіб зв'язку із пацієнтом"
           options={comunicationMethodValues}
         />
-        <FormField
+        <InputField
           name="secretWord"
           label="Секретне слово(не менше 6 символів)"
           required
         />
-        <FormField
+        <InputField
           name="phone"
           label="Кортактний номер телефону"
           placeholder="+38 (___) ___-__-__"
         />
-        <FormField
+        <InputField
           name="email"
           label="Адреса електронної пошти"
           placeholder="example@example.com"

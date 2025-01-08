@@ -7,7 +7,7 @@ export interface PatientFormValues {
   gender: string;
   birthCountry: string;
   birthPlace: string;
-  contactMethod: string;
+  contactMethod?: string;
   secretWord: string;
   phone?: string;
   email?: string;

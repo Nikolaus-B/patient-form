@@ -22,18 +22,35 @@ const validationSchema = yup.object().shape({
   gender: yup.string().required("Поле не може бути пустим"),
   birthCountry: yup.string().required("Поле не може бути пустим"),
   birthPlace: yup.string().required("Поле не може бути пустим"),
-  contactMethod: yup.string().required("Поле не може бути пустим"),
+  contactMethod: yup.string(),
   secretWord: yup
     .string()
     .min(6, "Секретне слово повинно містити не менше 6 символів")
     .required("Поле не може бути пустим"),
-  phone: yup
-    .string()
-    .matches(
-      /^\+38\s?\(?0\d{2}\)?\s?\d{3}-?\d{2}-?\d{2}$/,
-      "Некоректний номер телефону. Приклад: +38 (093) 999-88-77"
-    ),
-  email: yup.string().email("Невірний формат email"),
+  phone: yup.string().when("contactMethod", {
+    is: "phone",
+    then: (schema) =>
+      schema
+        .matches(
+          /^\+38\s?\(?0\d{2}\)?\s?\d{3}-?\d{2}-?\d{2}$/,
+          "Некоректний номер телефону. Приклад: +38 (093) 999-88-77"
+        )
+        .required("Поле не може бути пустим"),
+
+    otherwise: (schema) =>
+      schema.matches(
+        /^\+38\s?\(?0\d{2}\)?\s?\d{3}-?\d{2}-?\d{2}$/,
+        "Некоректний номер телефону. Приклад: +38 (093) 999-88-77"
+      ),
+  }),
+  email: yup.string().when("contactMethod", {
+    is: "mail",
+    then: (schema) =>
+      schema
+        .email("Невірний формат email")
+        .required("Поле не може бути пустим"),
+    otherwise: (schema) => schema.email("Невірний формат email"),
+  }),
   documentType: yup.string().required("Поле не може бути пустим"),
   passportSeries: yup
     .string()
